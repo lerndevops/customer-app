@@ -1,0 +1,17 @@
+jobname             purpose                    Maven Goal (Build step)   
+============================================================================
+job1-compile	   :  compile                    : compile              
+
+job2-codereview	 :  codereview                 : sonar:sonar   
+
+job3-unittest    :	unit test                  : test                 
+
+job4-metriccheck :	Code Coverage               : sonar:sonar
+
+job5-package     :  package                    : package              
+
+
+pre-reqs:
+=========
+1. A Sonarqube Server has to be set and update the url in pom.xml file
+ 
