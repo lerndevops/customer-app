@@ -140,7 +140,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<sonar.host.url>http://3.17.157.183:9000</sonar.host.url>
+				<sonar.host.url>http://192.168.0.107:9000</sonar.host.url>
 				<sonar.exclusions>file:**/src/main/java/com/edureka/customer/dto/**.*</sonar.exclusions>
 			</properties>
 		</profile>
