@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Main Page</title>
+<h1 align="center">Webinar Registration</h1>
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+</head>
+<body ng-app="customerApp">
+	<hr />
+	<div class="container" ng-controller="customerController">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+			<li ng-click="customerRegTabClick();"><a data-toggle="tab" href="#addcustomer">Customer
+					Registration</a></li>
+			<li ng-click="getAllCustomers();"><a data-toggle="tab"
+				href="#customers">All Customers</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="home" class="container tab-pane active">
+			<hr/>
+				<img src="../../images/webinars.png"></img>
+			</div>
+
+			<div id="addcustomer" class="row tab-pane">
+				<div class="alert alert-success alert-dismissible" ng-if=customerSaveMsg>
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					{{customerSaveMsg}}
+				</div>
+				<hr/>
+				<table class="table">
+					<tr>
+						<td><label class="col-md-2">Customer First Name</label><input class="col-md-3" type="text"
+							ng-model="customerDto.firstName" class="input-sm spacing" maxlength="25" required/></td>
+					</tr>
+					<tr>
+						<td><label class="col-md-2">Customer Last Name</label><input class="col-md-3" type="text"
+							ng-model="customerDto.lastName" class="input-sm spacing" maxlength="25"/></td>
+					</tr>
+					<tr>
+						<td><label class="col-md-2">Webinar Name</label> <input class="col-md-3" type="text"
+							ng-model="customerDto.customerName" class="input-sm spacing" maxlength="25"/></td>
+					</tr>
+					<tr>
+						<td><label class="col-md-2">Customer Email</label> <input class="col-md-3" type="email"
+							ng-model="customerDto.emailId" class="input-sm spacing" maxlength="25"/></td>
+					</tr>
+					<tr>
+						<td><label class="col-md-2">Customer Age</label> <input class="col-md-3" type="number"
+							ng-model="customerDto.age" class="input-sm spacing" /></td>
+					</tr>
+					<tr>
+						<td><label class="col-md-2">Customer Contact</label> <input class="col-md-3" type="text"
+							ng-model="customerDto.mobileNo" class="input-sm spacing" maxlength="10"/></td>
+					</tr>
+					<tr>
+						<td><button ng-click="addCustomer()"
+								class="btn btn-sm btn-info">Register Customer</button></td>
+					</tr>
+				</table>
+				<img src="../../images/Registration.jpeg"></img>
+			</div>
+			<hr />
+			<div id="customers" class="row tab-pane">
+				<!--  <p>{{allCustomers | json}}</p> -->
+				<table class="table table-striped" ng-if=allCustomers>
+					<tr>
+						<th><label>Customer First Name</label></th>
+						<th><label>Customer Last Name</label></th>
+						<th><label>Webinar Name</label></th>
+						<th><label>Customer Email</label></th>
+						<th><label>Customer Age</label></th>
+						<th><label>Customer Contact</label></th>
+					</tr>
+					<tr ng-repeat="customerDto in allCustomers">
+						<td>{{customerDto.firstName}}</td>
+						<td>{{customerDto.lastName}}</td>
+						<td>{{customerDto.customerName}}</td>
+						<td>{{customerDto.emailId}}</td>
+						<td>{{customerDto.age}}</td>
+						<td>{{customerDto.mobileNo}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<hr />
+	</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/customerController.js"></script>
+<script src="js/app/customerService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="css/app/app.css" />
+</html>
