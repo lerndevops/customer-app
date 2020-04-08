@@ -6,7 +6,7 @@ On Docker Host:
  docker network create ravi
 
 
-docker run --name app --network ravi  -d -p 8080:8080 leaddevops/webinarapp:v1
+docker run --name app --network ravi  -d -p 8080:8080 "your app image "
 
 docker run --name postgres -—network ravi -d -p 5432:5432 leaddevops/postgres:v1
 
