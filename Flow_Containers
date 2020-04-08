@@ -3,31 +3,10 @@ App Flow:
 On Docker Host:
 ============
 
- docker network create abcd
+ docker network create ravi
 
 
-docker run --name app --network abcd  -d -p 8080:8080 leaddevops/webinarapp:v1
+docker run --name app --network ravi  -d -p 8080:8080 leaddevops/webinarapp:v1
 
-docker run --name postgres -—network abcd -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:12
-docker exec -it postgres psql -U postgres
+docker run --name postgres -—network ravi -d -p 5432:5432 leaddevops/postgres:v1
 
-
-CREATE DATABASE "customer-app" WITH OWNER = postgres ENCODING = ‘utf8’ LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8' TABLESPACE = pg_default CONNECTION LIMIT = -1;
-
-\l                               # to get list of Dbs
-
-\c customer-app         # to connect to DB
-
-CREATE TABLE public.customer ( customerid character varying(30) COLLATE pg_catalog."default" NOT NULL, firstname character varying(30) COLLATE pg_catalog."default" NOT NULL, lastname character varying(30) COLLATE pg_catalog."default" NOT NULL, customername character varying(30) COLLATE pg_catalog."default" NOT NULL, email character varying(50) COLLATE pg_catalog."default" NOT NULL, age integer NOT NULL, mobile character varying(10) COLLATE pg_catalog."default" NOT NULL, CONSTRAINT customer_pkey PRIMARY KEY (customerid) );
-
-## TABLESPACE pg_default;
-
-ALTER TABLE public.customer OWNER to postgres;
-
-
-CREATE SEQUENCE public.customerid_seq INCREMENT 1 START 125 MINVALUE 1 MAXVALUE 10000000000 CACHE 1;
-
-ALTER SEQUENCE public.customerid_seq OWNER TO postgres;
-
-
-\dt        # to view data
