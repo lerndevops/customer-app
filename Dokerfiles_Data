@@ -5,7 +5,7 @@ RUN apt-get -y update
 RUN apt-get -y install openjdk-8-jdk wget
 RUN mkdir /opt/app
 WORKDIR /opt/app/
-COPY  customer-app-0.0.1-SNAPSHOT.jar /opt/app/
+COPY  customer-app-0.0.1-SNAPSHOT.jar /opt/app/        # the .jar file will be generated from CI process
 EXPOSE 8080
 CMD java -jar customer-app-0.0.1-SNAPSHOT.jar
 
