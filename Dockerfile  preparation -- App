@@ -1,0 +1,4 @@
+Take ubuntu as a base image
+install java
+copy the artifact generated 
+use the CMD as java -jar "artifact.jar"
