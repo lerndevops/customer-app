@@ -5,8 +5,12 @@ On Docker Host:
 
  docker network create ravi
 
+# App container runs on 8080 port as we are using springboot.
 
 docker run --name app --network ravi  -d -p 8080:8080 "your app image "
 
+# DB container must be using 5432 port and the name should be postgres as given below.
+
 docker run --name postgres -—network ravi -d -p 5432:5432 leaddevops/postgres:v1
+
 
